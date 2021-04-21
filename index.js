@@ -7,11 +7,15 @@ Customer.hasMany(Order);
 
 sequelize
   .sync({ force: true })
-//   .sync()
-  .then((result) => {
-    return Customer.findAll();
-  })
+  //   .sync()
   .then(() => {
-    console.log("All users:");
+    return Customer.create({ name: "Chandler Bing", email: "cb@gmail.com" });
+  })
+  .then((customer) => {
+    console.log("Customer created, id is : ", customer.id);
+    return customer.createOrder({ total: 34.99 });
+  })
+  .then((order) => {
+    console.log("Order created, id is : ", order.id);
   })
   .catch((err) => console.error(err));
