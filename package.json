@@ -1,0 +1,24 @@
+{
+  "name": "sequelize-youtube",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KritikaSharmaKS/Sequelize-Youtube.git"
+  },
+  "author": "Kritika Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KritikaSharmaKS/Sequelize-Youtube/issues"
+  },
+  "homepage": "https://github.com/KritikaSharmaKS/Sequelize-Youtube#readme"
+}
