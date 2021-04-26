@@ -7,21 +7,24 @@ Customer.hasMany(Order);
 
 let customerId = null;
 sequelize
-  .sync({ force: true })
-  //   .sync()
-  .then(() => {
-    return Customer.create({ name: "Chandler Bing", email: "cb@gmail.com" });
+  .sync({force: true})
+  // .sync()
+  .then((result) => {
+    return Customer.create({name: "Chandler Bing", email: "cb@gmail.com"})
+    console.log(result);
   })
-  .then((customer) => {
+  .then(customer => {
     customerId = customer.id;
-    console.log("Customer created, id is : ", customer.id);
-    return customer.createOrder({ total: 34.99 });
+    console.log("First Customer Created: ",customer);
+    return customer.createOrder({total: 45});
   })
-  .then((order) => {
-    console.log("Order created, id is : ", order.id);
-    return Order.findAll( { where: { customerId } });
+  .then(order => {
+    console.log("Order is : ",order);
+    return Order.findAll({ where: customerId});
   })
-  .then((orders) => {
-    console.log(orders);
+  .then(orders => {
+    console.log("All the Orders are : ",orders);
   })
-  .catch((err) => console.error(err));
+  .catch((err) => {
+    console.log(err);
+  });
